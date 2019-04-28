@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Pesquisa Produtos</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=UbuntuVarela+Round" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+</head>
+<body >
+
+	<header id="header">
+		<nav class="topNav" id="nav">
+			<a href="../">Home</a>
+			<a href="{% url 'produto.html'%}">Produtos</a>
+			<a href="{% url 'pesquisa_produto.html'%}">Pesquisas</a>
+			<a href="{% url 'venda.html' %}">Venda</a>
+		</nav>
+	</header>	
+	<div class="faixa-mei">
+		<form method="GET" action="{% url 'outro2.html' %}" class="post-form">{% csrf_token %}
+			{{ form.as_p }}
+			<div class="divFormPesquisa">
+				<label for="id_pesquisa">Pesquisa de Produtos</label>
+				<input type="text"  name="pesquisa" placeholder="Digite um produto" class="formCadastro"><br>
+				<div>
+					<input type="submit" value="Pesquisar" class="botaoPesquisa">
+				</div>
+			</div>
+		</form>
+		<div class="container">
+			<table class="bordered striped centered highlight responsive-table">
+				
+				<thead>
+					<tr>
+						<th>Código</th>
+						<th>Nome</th>
+						<th>Descrição</th>
+						<th>Quantidade</th>
+						<th>Peso</th>
+						<th>Valor</th>
+						<th>Editar</th>
+						<th>Deletar</th>
+
+					</tr>
+				</thead>
+				{% for produto in produtos %}
+				<tbody>
+					<tr>
+
+						<td>{{ produto.id }}</td>
+						<td>{{ produto.nome }}</td>
+						<td>{{ produto.descricao }}</td>
+						<td>{{ produto.quantidade }}</td>
+						<td>{{ produto.peso }}</td>
+						<td>{{ produto.valor }}</td>
+						<td><form method="POST" action="{% url 'editar.html' produto.id %}" class="post-form">{% csrf_token %}
+							{{ form.as_p }}
+									<input type="submit" value="Editar" class="botaoForm">
+						</form></td>
+						<td><form method="POST" action="{% url 'deletar.html' produto.id %}" class="post-form">{% csrf_token %}
+							{{ form.as_p }}
+									<input type="submit" value="Deletar" class="botaoForm">
+						</form></td>
+					</tr>
+				</tbody>
+				{% endfor %}
+			</table>       
+		</div>
+	</div>
+</div>	
+<footer id="footer">
+	__________________________
+</footer>
+</div>
+</body>
+</html> 
+

@@ -1,0 +1,296 @@
+
+
+.topNav{
+	background-color: #ffa500;
+	overflow: hidden;
+	font-family: 'Merriweather Sans', sans-serif;
+	font-size: 40px;
+}
+
+.topNav a{
+	float: left;
+	color: black;
+	padding: 16px 30px;
+	font-size: 16px;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.topNav a:hover{
+	background-color: #cc8400;
+	color: black; 
+}
+
+#header{
+	border: 0.7px solid black;
+	width: 110%;
+	background-color: black; 
+	margin-bottom: 50px;
+	margin-top: -10px;
+	margin-left: -10px;
+	font-family: 'Merriweather Sans', sans-serif;
+	font-size: 40px;
+	
+}
+
+
+.faixa-meio{
+	border: 0.7px solid black;
+	width: 84%;
+	height: 500px;
+	margin: 2px;
+	border-radius: 3px;	
+	padding-top: 0px;
+	padding-bottom: 20px; 
+	position: relative;
+	left: 8%;
+	background-color: #FFFAFA;
+	font-family: 'Merriweather Sans', sans-serif;
+	font-size: 20px;
+
+	
+}
+.faixa-meio2{
+	width: 84%;
+	height: 500px;
+	margin: 2px;
+	padding-top: 0px;
+	padding-bottom: 20px; 
+	position: relative;
+	left: 8%;
+	background-color: #FFFAFA;
+	font-family: 'Merriweather Sans', sans-serif;
+	font-size: 20px;
+
+}
+.botaoMeio1{
+	border: 1px solid black;
+	width: 250px;
+	height: 300px;
+	margin-top: 100px;
+	position: relative;
+	left: 20%;
+	border-radius: 5px;
+	background-color: #D3D3D3;
+	overflow: hidden;
+	float: left;
+	text-align: center;
+	background-color: white;
+	font-family: 'Merriweather Sans', sans-serif;
+
+
+}
+.addMeio{
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	margin-top: 10px;
+	margin-left: 90px;
+
+	text-align: center;
+
+	background-image: url('tela-fundo.jpg');
+   background-position:center;
+   background-repeat:no-repeat; 
+
+
+}
+.botaoMeio2{
+	border: 1px solid black;
+	width: 250px;
+	height: 300px;
+	position: relative;
+	left: 25%;
+	margin-top: 100px;
+	border-radius: 5px;
+	background-color: #D3D3D3;
+	overflow: hidden;
+	float: left;
+	text-align: center;
+	background-color: white;
+}
+.addMeio2{	
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	margin-top: 10px;
+	margin-left: 90px;
+	border-radius: 100px;
+	text-align: center;
+
+
+}
+.botaoMeio3{
+	border: 1px solid black;
+	width: 250px;
+	height: 300px;
+	position: relative;
+	left: 30%;
+	margin-top: 50px;
+	border-radius: 5px;
+	background-color: white;
+	overflow: hidden;
+	float: left;
+	text-align: center;
+}
+.addMeio3{
+
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	margin-top: 10px;
+	margin-left: 90px;
+	border-radius: 100px;
+	text-align: center;
+
+
+
+
+}
+.botaoMeio1 a,  .botaoMeio2 a, .botaoMeio3 a{
+	width: 250px;
+	height: 300px;
+	color: black;
+	padding: 15px 17px;
+	border-radius: 5px;
+	display: block;
+	float: left;
+	text-decoration:none;
+	text-align: center;
+	margin-top: 120px;	
+	margin-left: -10px;
+	background-color: #D3D3D3;
+
+
+}
+
+.botaoMeio1 a:hover, .botaoMeio2 a:hover , .botaoMeio3 a:hover{
+	
+	background-color: #1E90FF;
+	color: white; 
+}
+
+
+#footer{
+	background-color: #Ffa500;
+	border: 0.7px solid black;
+	width: 110%;
+	text-align: center;
+	margin-top: 250px;
+	margin-bottom: 15px;
+	padding: 8px; 
+	margin-left: -10px; 
+	margin-right: -10px;
+}
+.material-icons.md-48 { 
+	font-size: 110px;
+	position: absolute; 
+	left: -15%;
+	margin-top: -10px;
+}
+
+.divFormCadastro{
+	float:left;
+	margin-left: 50px;
+	margin-bottom: 50px;
+	margin-right: 10px;
+}
+.divFormPesquisa{
+	width: 500px;
+	margin-left: 300px;
+	float:left;
+
+}
+.divFormCadastro2{
+	float:left;
+	margin-left: 70px;
+	margin-bottom: 50px;
+	margin-right: 10px;
+}
+
+.divFormCadastro3{
+	float:left;
+	margin-left: 60px;
+	margin-bottom: 50px;
+	margin-right: 10px;
+}
+
+.formCadastro{
+	padding: 8px;
+	border: 1px solid black;
+	border-radius: 7px;
+	margin-left: 10px;
+}
+.formPesquisa{
+	border: 1px solid black;
+	border-radius: 7px;
+	position: relative;
+	width: 500px;
+	margin-left: 300px;
+	float: left;
+}
+.formPesquisa:hover{
+	border: 1px solid black;
+	border-radius: 7px;
+	position: relative;
+	width: 300px;
+	margin-left: 300px;
+
+}
+
+.botaoPesquisa{
+	float: left;
+    background-color:#069;
+    border:1px #000;
+    color:#fff;
+    font-weight:bold;
+    border-radius: 5px;	
+	height: 40px;
+	width: 120px;
+	margin-left: 50px;
+
+}
+
+.formCadastro:hover{
+	padding: 8px;
+	border: 1px solid black;
+	border-radius: 7px;
+}
+
+
+
+.botaoCadastro{
+    background-color:#069;
+    border:1px #000;
+    color:#fff;
+    font-weight:bold;
+    border-radius: 5px;	
+	height: 40px;
+	width: 120px;
+	margin-left: 50px;
+
+}
+
+.botaoCadastro:hover {
+    background-color:#036;
+    border:1px #000;
+    color:#fff;
+    font-weight:bold;
+    border-radius: 5px;
+}
+
+h1{
+	margin-left: 50px;
+}
+
+hr{
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.vendaValor{
+	background-color: #Ffa500;
+	border: 0.7px solid black;
+	width: 100px;
+	text-align: center;
+	font-family: 30px;
+}

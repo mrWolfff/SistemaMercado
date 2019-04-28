@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Página Principal!</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=UbuntuVarela+Round" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
+
+</head>
+<body background="{% static 'tela-fundo.jpg'%}">
+
+	<header id="header">
+		<nav class="topNav" id="nav">
+			<a href="../">Home</a>
+			<a href="{% url 'produto.html'%}">Produtos</a>
+			<a href="{% url 'pesquisa_produto.html'%}">Pesquisas</a>
+			<a href="{% url 'venda.html' %}">Venda</a>
+		</nav>
+	</header>	
+	<div class="faixa-meio">
+		<h1>Cadastro</h1>
+		<hr>
+		<form method="POST" action="{% url 'outro.html' %}" class="post-form">{% csrf_token %}
+			{{ form.as_p }}
+			<div class="divFormCadastro">
+				<label for="id_codigo">Codigo</label>
+				<input type="text" name="codigo" required="required" class="formCadastro">
+			</div>
+			<div class="divFormCadastro">
+				<label for="id_nome">Nome</label>
+				<input type="text" name="nome" placeholder="Digite o nome do produto" required="required" class="formCadastro">
+			</div>
+			<div class="divFormCadastro">
+				<label for="id_descricao">Descrição</label>
+				<input type="text" name="descricao" placeholder="Digite a descrição do produto" required="required" class="formCadastro">
+			</div>
+			<div class="divFormCadastro">
+				<label for="id_quantidade">Quantidade</label>
+				<input type="text" name="quantidade" placeholder="Digite a quantidade de produtos" required="required" class="formCadastro">
+			</div>
+			<div class="divFormCadastro2">
+				<label for="id_peso">Peso</label>
+				<input type="text" name="peso" placeholder="Digite o peso do produto" required="required" class="formCadastro">
+			</div>
+			<div class="divFormCadastro3">
+				<label for="id_valor">Valor</label>
+				<input type="text" name="valor" placeholder="Digite o valor do produto" required="required" class="formCadastro">
+			</div>
+			<br><br><br><br>
+			<br><br><br><br>
+			<hr><br>
+			<div>
+				<input type="submit" name="" value="Cadastrar" class="botaoCadastro">
+			</div>
+		</form>
+	</div>	
+	<footer id="footer">
+		__________________________
+	</footer>

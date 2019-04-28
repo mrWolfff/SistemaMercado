@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Venda!</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=UbuntuVarela+Round" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+</head>
+<body >
+
+	<header id="header">
+		<nav class="topNav" id="nav">
+			<a href="../">Home</a>
+			<a href="{% url 'produto.html'%}">Produtos</a>
+			<a href="{% url 'pesquisa_produto.html'%}">Pesquisas</a>
+			<a href="">Venda</a>
+		</nav>
+	</header>	
+
+
+
+
+
+
+
+
+
+
+	<form method="GET" action="{% url 'venda.html' %}" class="post-form">{% csrf_token %}
+		{{ form.as_p }}
+		<div class="divFormPesquisa">
+			<label for="id_pesquisa">Adicionar Produtos</label>
+			<input type="text"  name="add" class="formCadastro"><br>
+			{% for v in venda %}
+			<input type="hidden"  name="aux" value="{{ valorTotal }}">
+			{% endfor %}
+			<input type="submit" value="Adicionar" class="botaoPesquisa">
+			
+		</div>
+	</form>
+	<form method="GET" action="{% url 'venda.html' %}" class="post-form">{% csrf_token %}
+		{{ form.as_p }}
+		<div class="divFormPesquisa">
+			<br><br><div class="vendaValor">R$ - {{ valorTotal }}</div><br>
+
+			<input type="hidden"  name="fim" value="fim">
+			<input type="submit" value="Finalizar Venda" class="botaoPesquisa">
+		</div>
+	</form>
+
+	<div>
+	</div>
+
+	<div>
+	</div>
+
+
+	<div class="container">
+		<table class="bordered striped centered highlight responsive-table">
+
+			<thead>
+				<tr>
+					<th>Código</th>
+					<th>Nome</th>
+					<th>Descrição</th>
+					<th>Quantidade</th>
+					<th>Peso</th>
+					<th>Valor</th>
+					<th>Deletar</th>
+
+				</tr>
+			</thead>
+			{% for v in venda %}
+			<tbody>
+				<tr>
+
+					<td>{{ v.id }}</td>
+					<td>{{ v.produto_nome }}</td>
+					<td>{{ v.produto_descricao }}</td>
+					<td>{{ v.produto_quantidade }}</td>
+					<td>{{ v.produto_peso }}</td>
+					<td>{{ v.produto_valor }}</td>
+					<td><form method="POST" action="{% url 'remover.html' v.id %}" class="post-form">{% csrf_token %}
+						{{ form.as_p }}
+						<input type="submit" value="Remover" class="botaoForm">
+					</form></td>
+				</tr>
+			</tbody>
+			{% endfor %}
+		</table>       
+	</div>
