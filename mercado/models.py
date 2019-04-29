@@ -18,13 +18,13 @@ class Post(models.Model):
         def __str__(self):
             return self.title
 
-class Produto(models.Model):
-    codigo = models.CharField(max_length=10)
-    nome = models.CharField(max_length=200)
-    descricao = models.TextField()
-    quantidade = models.CharField(max_length=10)
-    peso = models.CharField(max_length=10)
-    valor = models.CharField(max_length=10)
+class Produtos(models.Model):
+    nome = models.CharField(max_length=100)
+    descricao = models.CharField(max_length=200)
+    quantidade = models.CharField(max_length=50)
+    peso = models.CharField(max_length=50)
+    valor = models.CharField(max_length=50)
+    fornecedor = models.CharField(max_length=100, default='SOME STRING')
 
 
     def __str__(self):
@@ -40,12 +40,11 @@ class Venda(models.Model):
     def __str__(self):
         return self.produto_nome
 
-class VendasRealizadas(models.Model):
-    venda_id = models.CharField(max_length=200)
-
     def valorTotal(self):
         valor = 0
         vendas = Venda.objects.all().filter(nota=self)
         for v in vendas:
             valor += (v.produto_valor * v.produto_quantidade)
         return valor
+
+    

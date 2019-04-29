@@ -10,16 +10,13 @@
 	rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-
-</head>
-<body >
-
 	<header id="header">
 		<nav class="topNav" id="nav">
 			<a href="../">Home</a>
 			<a href="{% url 'produto.html'%}">Produtos</a>
 			<a href="{% url 'pesquisa_produto.html'%}">Pesquisas</a>
 			<a href="{% url 'venda.html' %}">Venda</a>
+			<a href="{% url 'fornecedor.html'%}">Fornecedor</a>
 		</nav>
 	</header>	
 	<div class="faixa-mei">
@@ -35,7 +32,6 @@
 		</form>
 		<div class="container">
 			<table class="bordered striped centered highlight responsive-table">
-				
 				<thead>
 					<tr>
 						<th>Código</th>
@@ -52,7 +48,6 @@
 				{% for produto in produtos %}
 				<tbody>
 					<tr>
-
 						<td>{{ produto.id }}</td>
 						<td>{{ produto.nome }}</td>
 						<td>{{ produto.descricao }}</td>
@@ -74,9 +69,7 @@
 		</div>
 	</div>
 </div>	
-<footer id="footer">
-	__________________________
-</footer>
+<footer id="footer">https://github.com/mrWolfff/SistemaMercado</footer>
 </div>
 </body>
 </html> 

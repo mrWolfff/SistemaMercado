@@ -10,15 +10,13 @@
 	rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
 
-</head>
-<body background="{% static 'tela-fundo.jpg'%}">
-
 	<header id="header">
 		<nav class="topNav" id="nav">
 			<a href="../">Home</a>
 			<a href="{% url 'produto.html'%}">Produtos</a>
 			<a href="{% url 'pesquisa_produto.html'%}">Pesquisas</a>
 			<a href="{% url 'venda.html' %}">Venda</a>
+			<a href="{% url 'fornecedor.html'%}">Fornecedor</a>
 		</nav>
 	</header>	
 	<div class="faixa-meio">
@@ -26,10 +24,6 @@
 		<hr>
 		<form method="POST" action="{% url 'outro.html' %}" class="post-form">{% csrf_token %}
 			{{ form.as_p }}
-			<div class="divFormCadastro">
-				<label for="id_codigo">Codigo</label>
-				<input type="text" name="codigo" required="required" class="formCadastro">
-			</div>
 			<div class="divFormCadastro">
 				<label for="id_nome">Nome</label>
 				<input type="text" name="nome" placeholder="Digite o nome do produto" required="required" class="formCadastro">
@@ -50,6 +44,14 @@
 				<label for="id_valor">Valor</label>
 				<input type="text" name="valor" placeholder="Digite o valor do produto" required="required" class="formCadastro">
 			</div>
+			<div class="divFormCadastro">
+				<label for="id_fornecedor">Fornecedor</label>
+				<select name="fornecedor">
+					{% for f in fornecedor %}
+					<option name="fornecedor" value="{{f.nome}}">{{f.nome}}</option>
+					{% endfor %}
+				</select>
+			</div>
 			<br><br><br><br>
 			<br><br><br><br>
 			<hr><br>
@@ -59,5 +61,5 @@
 		</form>
 	</div>	
 	<footer id="footer">
-		__________________________
+		<a>https://github.com/mrWolfff/SistemaMercado</a>
 	</footer>

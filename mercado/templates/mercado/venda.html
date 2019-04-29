@@ -11,27 +11,15 @@
 	<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 
-</head>
-<body >
-
 	<header id="header">
 		<nav class="topNav" id="nav">
 			<a href="../">Home</a>
 			<a href="{% url 'produto.html'%}">Produtos</a>
 			<a href="{% url 'pesquisa_produto.html'%}">Pesquisas</a>
-			<a href="">Venda</a>
+			<a href="{% url 'venda.html' %}">Venda</a>
+			<a href="{% url 'fornecedor.html'%}">Fornecedor</a>
 		</nav>
 	</header>	
-
-
-
-
-
-
-
-
-
-
 	<form method="GET" action="{% url 'venda.html' %}" class="post-form">{% csrf_token %}
 		{{ form.as_p }}
 		<div class="divFormPesquisa">
@@ -95,3 +83,5 @@
 			{% endfor %}
 		</table>       
 	</div>
+<footer id="footer">https://github.com/mrWolfff/SistemaMercado</footer>
+</html>

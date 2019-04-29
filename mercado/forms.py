@@ -1,11 +1,11 @@
 from django import forms
-from .models import Produto, Venda
+from .models import Produtos, Venda
 
 class PostForm(forms.ModelForm):
 
 	class Meta:
-		model = Produto
-		fields = ('codigo', 'nome', 'descricao', 'quantidade', 'peso', 'valor',)
+		model = Produtos
+		fields = ('nome', 'descricao', 'quantidade', 'peso', 'valor', 'fornecedor',)
 
 class PostFormVenda(forms.ModelForm):
 	class Meta:

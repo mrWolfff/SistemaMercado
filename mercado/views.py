@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Post, Produto, Venda
+from .models import Post, Produtos, Venda
+from fornecedor.models import Fornecedor
 from django.shortcuts import redirect
 from .forms import PostForm, PostFormVenda
 import pdb
@@ -8,9 +9,11 @@ def baseRender(request):
 	return render(request, 'mercado/base.html')
 
 def produtoRender(request):
-	return render(request, 'mercado/produto.html')
+	fornecedor = Fornecedor.objects.all()
+	return render(request, 'mercado/produto.html', {'fornecedor':fornecedor})
 
 def produto(request):
+	fornecedor = Fornecedor.objects.all()
 	if request.method == 'POST':
 		form = PostForm(request.POST)
 		if form.is_valid():	
@@ -18,10 +21,10 @@ def produto(request):
 			return redirect('base.html')
 	else:
 		form.PostForm()
-	return render(request, 'mercado/outro.html', {'form':form} )
+	return render(request, 'mercado/outro.html', {'form':form, 'fornecedor':fornecedor} )
 
 def vendaRender(request):
-	produto = Produto.objects.all()
+	produto = Produtos.objects.all()
 	venda = Venda.objects.all()
 	valorTotal = 0
 	if request.GET.get('fim') is not None:
@@ -33,7 +36,7 @@ def vendaRender(request):
 			aux = 0
 		token = request.GET.get('csrfmiddlewaretoken')
 		valorTotal = int(aux)
-		produto = Produto.objects.get(id=add)
+		produto = Produtos.objects.get(id=add)
 		valorTotal = valorTotal + int(produto.valor)
 		formulario = {'csrfmiddlewaretoken': token,
 		'produto_nome': produto.nome,
@@ -49,14 +52,14 @@ def vendaRender(request):
 
 
 def pesquisa_produtoRender(request):
-	produtos = Produto.objects.all()
+	produtos = Produtos.objects.all()
 	busca = request.GET.get('pesquisa')
 	if busca is not None:
 		produtos =  produtos.filter(nome__icontains=busca)
 	return render(request, 'mercado/pesquisa_produto.html',{'produtos':produtos})
 
 def pesquisa_produto(request, id):
-	produtos = Produto.objects.all()
+	produtos = Produtos.objects.all()
 	busca = request.GET.get('pesquisa')
 	if busca is not None:
 		produtos =  produtos.filter(nome__icontains=busca)
@@ -65,11 +68,12 @@ def pesquisa_produto(request, id):
 
 
 def editarRender(request, id):
-	produto = Produto.objects.get(id=id)
-	return render(request, 'mercado/editar.html', {'produto': produto})
+	produto = Produtos.objects.get(id=id)
+	fornecedor = Fornecedor.objects.all()
+	return render(request, 'mercado/editar.html', {'produto': produto, 'fornecedor':fornecedor})
 
 def editar(request, id):
-	produto = Produto.objects.get(id=id)
+	produto = Produtos.objects.get(id=id)
 	form = PostForm(request.POST or None, instance=produto)
 	if form.is_valid():
 		form.save()
@@ -77,7 +81,7 @@ def editar(request, id):
 	return render(request, 'mercado/editar2.html', {'form': form, 'produto': produto})
 
 def deletar(request, id):
-	produto = Produto.objects.get(id=id)
+	produto = Produtos.objects.get(id=id)
 	if request.method == 'POST':
 		produto.delete()
 		return redirect('pesquisa_produto.html')

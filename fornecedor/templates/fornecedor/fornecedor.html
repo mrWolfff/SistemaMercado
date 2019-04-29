@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Fornecedores</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=UbuntuVarela+Round" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+	<header id="header">
+		<nav class="topNav" id="nav">
+			<a href="{% url 'base.html'%}">Home</a>
+			<a href="{% url 'cadastro.html'%}">Cadastro</a>
+			<a href="{% url 'fornecedor.html'%}">Fornecedores</a>
+		</nav>
+	</header>	
+	<div class="faixa-mei">
+		<form method="GET" action="{% url 'fornecedor.html' %}" class="post-form">{% csrf_token %}
+			{{ form.as_p }}
+			<div class="divFormPesquisa">
+				<label for="id_pesquisa">Pesquisa de Fornecedores</label>
+				<input type="text"  name="pesquisa" placeholder="Digite um fornecedor" class="formCadastro"><br>
+				<div>
+					<input type="submit" value="Pesquisar" class="botaoPesquisa">
+				</div>
+			</div>
+		</form>
+		<div class="container">
+			<table class="bordered striped centered highlight responsive-table">
+				
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nome</th>
+						<th>Deletar</th>
+					</tr>
+				</thead>
+				{% for fornecedor in fornecedores %}
+				<tbody>
+					<tr>
+						<td>{{ fornecedor.id }}</td>
+						<td>{{ fornecedor.nome }}</td>
+						<td><form method="GET" action="{% url 'deletarf.html' fornecedor.id %}" class="post-form">{% csrf_token %}
+							{{ form.as_p }}
+									<input type="submit" value="Deletar" class="botaoForm">
+						</form></td>
+					</tr>
+				</tbody>
+				{% endfor %}
+			</table>       
+		</div>
+	</div>
+</div>	
+</div>
+<footer id="footer">https://github.com/mrWolfff/SistemaMercado</footer>
+</html>
+
