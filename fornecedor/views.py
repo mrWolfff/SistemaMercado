@@ -26,7 +26,7 @@ def fornecedor(request):
 	fornecedores = Fornecedor.objects.all()
 	busca = request.GET.get('pesquisa')
 	if busca is not None:
-		produtos =  fornecedores.filter(nome__icontains=busca)
+		fornecedores =  fornecedores.filter(nome__icontains=busca)
 	return render(request, 'fornecedor/fornecedor.html',{'fornecedores':fornecedores})
 
 
